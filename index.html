@@ -1,1 +1,60 @@
-"Hello World" 
+<html lang="en" ng-app="APP">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/main.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+</head>
+<body ng-controller="mainCTRL">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 page-header">
+                <h1><small>Welcome to the</small><br/>Culture Team Feud!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 center">
+                <div class="btn-group" role="group" aria-label="..." ng-show="!hasStarted">
+                    <button type="button" class="btn btn-default" ng-click="start()">START!</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="hasStarted">
+            <div class="col-lg-12 center">
+                <span>#{{currentQuestion.index}}</span>
+                <h4>{{currentQuestion.title}}</h4>
+
+                <div class="answers-container">
+                    <p class="answer-item" ng-repeat="answer in currentQuestion.answers">
+                        <span ng-show="answer.reveal">{{answer.title}} {{answer.value}}</span>
+                        <button type="button" class="btn btn-default" ng-click="revealAnswer(answer)" ng-show="!answer.reveal">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                    </p>
+                </div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" ng-click="reset()">Reset</button>
+                    <button type="button" class="btn btn-primary" ng-click="nextQuestion()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

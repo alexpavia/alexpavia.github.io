@@ -1,0 +1,22 @@
+.page-header {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.answers-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 115px;
+    max-width: 250px;
+    margin: auto;
+}
+
+.answer-item {
+    margin: 5px 10px;
+    text-transform: capitalize;
+}
