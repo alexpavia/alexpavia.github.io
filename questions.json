@@ -38,7 +38,8 @@
         {
           "index" : 1,
           "title" : "swimming",
-          "value" : 44
+          "value" : 44,
+          "alternates" : ["swim", "pool", "water"]
         },
         {
           "index" : 2,
@@ -53,7 +54,8 @@
         {
           "index" : 4,
           "title" : "surfing",
-          "value" : 11
+          "value" : 11,
+          "alternates" : ["surf"]
         },
         {
           "index" : 5,
@@ -69,27 +71,32 @@
         {
           "index" : 1,
           "title" : "monsters",
-          "value" : 37
+          "value" : 37,
+          "alternates" : ["ghost", "demon", "zombie", "evil", "scary"]
         },
         {
           "index" : 2,
           "title" : "cars",
-          "value" : 22
+          "value" : 22,
+          "alternates" : ["car"]
         },
         {
           "index" : 3,
           "title" : "cops",
-          "value" : 19
+          "value" : 19,
+          "alternates" : ["police"]
         },
         {
           "index" : 4,
           "title" : "bad guys",
-          "value" : 10
+          "value" : 10,
+          "alternates" : ["villain", "bad", "antagonist", "enemy", "enemies"]
         },
         {
           "index" : 5,
           "title" : "dogs",
-          "value" : 10
+          "value" : 10,
+          "alternates" : ["dog", "canine", "canines"]
         }
       ]
     },
@@ -100,12 +107,14 @@
         {
           "index" : 1,
           "title" : "send food back",
-          "value" : 40
+          "value" : 40,
+          "alternates" : ["complain"]
         },
         {
           "index" : 2,
           "title" : "not tip",
-          "value" : 35
+          "value" : 35,
+          "alternates" : ["no tip"]
         },
         {
           "index" : 3,
@@ -115,12 +124,14 @@
         {
           "index" : 4,
           "title" : "snap fingers",
-          "value" : 5
+          "value" : 5,
+          "alternates" : ["snap"]
         },
         {
           "index" : 5,
           "title" : "spill drinks",
-          "value" : 4
+          "value" : 4,
+          "alternates" : ["spill"]
         }
       ]
     },
@@ -151,7 +162,333 @@
         {
           "index" : 5,
           "title" : "hot cocoa",
-          "value" : 4
+          "value" : 4,
+          "alternates" : ["hot chocolate", "cocoa"]
+        }
+      ]
+    },
+    {
+      "index" : 6,
+      "title" : "Name A Place You Visit Where You Aren't Allowed To Touch Anything",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "museum/gallery",
+          "value" : 68,
+          "alternates" : ["museum", "gallery", "art"]
+        },
+        {
+          "index" : 2,
+          "title" : "zoo",
+          "value" : 20
+        },
+        {
+          "index" : 3,
+          "title" : "gentleman's club",
+          "value" : 18,
+          "alternates" : ["strip club"]
+        },
+        {
+          "index" : 4,
+          "title" : "china shop",
+          "value" : 5,
+          "alternates" : ["chinaware", "china store"]
+        }
+      ]
+    },
+    {
+      "index" : 7,
+      "title" : "Name Something That A Man Had Better Not Take On His Honeymoon",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "another woman",
+          "value" : 43,
+          "alternates" : ["girlfriend", "mistress", "secret"]
+        },
+        {
+          "index" : 2,
+          "title" : "cell phone",
+          "value" : 27
+        },
+        {
+          "index" : 3,
+          "title" : "his parents",
+          "value" : 13,
+          "alternates" : ["parents", "mother", "mom", "father", "dad"]
+        },
+        {
+          "index" : 4,
+          "title" : "work/laptop",
+          "value" : 11,
+          "alternates" : ["work", "computer", "laptop"]
+        },
+        {
+          "index" : 5,
+          "title" : "golf clubs",
+          "value" : 6,
+          "alternates" : ["golf", "clubs"]
+        }
+      ]
+    },
+    {
+      "index" : 8,
+      "title" : "Name Something People Do While Riding A Rollercoaster",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "scream",
+          "value" : 43,
+          "alternates" : ["yell"]
+        },
+        {
+          "index" : 2,
+          "title" : "hold arms up",
+          "value" : 32,
+          "alternates" : ["raise arms", "raise hands", "hands up", "arms up", "arms above", "hands above"]
+        },
+        {
+          "index" : 3,
+          "title" : "get sick",
+          "value" : 13,
+          "alternates" : ["barf", "throwup", "throw up", "sick", "hurl", "blow chunks", "puke", "dizzy"]
+        },
+        {
+          "index" : 4,
+          "title" : "laugh",
+          "value" : 4,
+          "alternates" : ["cheer", "giggle", "smile", "fun"]
+        },
+        {
+          "index" : 5,
+          "title" : "close their eyes",
+          "value" : 4,
+          "alternates" : ["close eyes", "shut", "eyes"]
+        }
+      ]
+    },
+    {
+      "index" : 9,
+      "title" : "Name A Fruit That's Delicious To Eat, But Hard To Break Into",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "coconut",
+          "value" : 27
+        },
+        {
+          "index" : 2,
+          "title" : "pineapple",
+          "value" : 26
+        },
+        {
+          "index" : 3,
+          "title" : "watermelon",
+          "value" : 22
+        },
+        {
+          "index" : 4,
+          "title" : "cantaloupe",
+          "value" : 11
+        },
+        {
+          "index" : 5,
+          "title" : "pomegranate",
+          "value" : 9
+        }
+      ]
+    },
+    {
+      "index" : 10,
+      "title" : "Name Something A Wife Tells Her Husband He Needs To Change",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "his clothes",
+          "value" : 48,
+          "alternates" : ["clothes", "wardrobe", "outfit", "wears", "shirt", "pants", "shoes", "closet"]
+        },
+        {
+          "index" : 2,
+          "title" : "his attitude",
+          "value" : 28,
+          "alternates" : ["attitude", "positive", "happier", "happy", "pleasant"]
+        },
+        {
+          "index" : 3,
+          "title" : "his job",
+          "value" : 18,
+          "alternates" : ["job", "career", "work", "profession", "title"]
+        },
+        {
+          "index" : 4,
+          "title" : "eating habits",
+          "value" : 3,
+          "alternates" : ["eat", "diet", "food", "health"]
+        },
+        {
+          "index" : 5,
+          "title" : "his snoring",
+          "value" : 3,
+          "alternates" : ["snore", "snoring"]
+        }
+      ]
+    },
+    {
+      "index" : 11,
+      "title" : "Name A Common Phobia",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "fear of heights",
+          "value" : 30,
+          "alternates" : ["high", "heights", "acrophobia"]
+        },
+        {
+          "index" : 2,
+          "title" : "fear of spiders",
+          "value" : 30,
+          "alternates" : ["spiders", "arachnophobia"]
+        },
+        {
+          "index" : 3,
+          "title" : "fear of snakes",
+          "value" : 20,
+          "alternates" : ["snakes", "ophidiophobia"]
+        },
+        {
+          "index" : 4,
+          "title" : "fear of open spaces",
+          "value" : 20,
+          "alternates" : ["crowd", "open space", "agoraphobia", "lots of people"]
+        }
+      ]
+    },
+    {
+      "index" : 12,
+      "title" : "Name A Furry Animal That Would Not Make A Good Pet",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "bear",
+          "value" : 39
+        },
+        {
+          "index" : 2,
+          "title" : "skunk",
+          "value" : 28
+        },
+        {
+          "index" : 3,
+          "title" : "raccoon",
+          "value" : 18
+        },
+        {
+          "index" : 4,
+          "title" : "lion",
+          "value" : 15
+        }
+      ]
+    },
+    {
+      "index" : 13,
+      "title" : "Name A Famous Movie Monster",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "godzilla",
+          "value" : 38
+        },
+        {
+          "index" : 2,
+          "title" : "frankenstein",
+          "value" : 22
+        },
+        {
+          "index" : 3,
+          "title" : "freddy krueger",
+          "value" : 20,
+          "alternates" : ["freddy", "krueger", "kruger"]
+        },
+        {
+          "index" : 4,
+          "title" : "king kong",
+          "value" : 11
+        },
+        {
+          "index" : 5,
+          "title" : "sulley",
+          "value" : 9,
+          "alternates" : ["sully", "sullivan", "james sullivan"]
+        }
+      ]
+    },
+    {
+      "index" : 14,
+      "title" : "Name Something You Should Not Do While Driving",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "drink",
+          "value" : 28,
+          "alternates" : ["drink", "alcohol", "beer", "booze", "drunk"]
+        },
+        {
+          "index" : 2,
+          "title" : "use cell phone",
+          "value" : 24,
+          "alternates" : ["text", "texting", "phone", "social media", "facebook", "tweet", "snapchat", "instagram"]
+        },
+        {
+          "index" : 3,
+          "title" : "sleep",
+          "value" : 22,
+          "alternates" : ["nap", "snooze", "drowsy", "tired", "sleep"]
+        },
+        {
+          "index" : 4,
+          "title" : "speed",
+          "value" : 13,
+          "alternates" : ["speed", "fast"]
+        },
+        {
+          "index" : 5,
+          "title" : "read",
+          "value" : 8
+        }
+      ]
+    },
+    {
+      "index" : 15,
+      "title" : "Name An Article Of Clothing People Might Not Wear All Through Summer",
+      "answers" : [
+        {
+          "index" : 1,
+          "title" : "coat",
+          "value" : 38
+        },
+        {
+          "index" : 2,
+          "title" : "sweater",
+          "value" : 22,
+          "alternates" : ["turtleneck", "jumper"]
+        },
+        {
+          "index" : 3,
+          "title" : "pants",
+          "value" : 20,
+          "alternates" : ["jeans", "pants", "sweatpants", "sweats"]
+        },
+        {
+          "index" : 4,
+          "title" : "socks",
+          "value" : 11
+        },
+        {
+          "index" : 5,
+          "title" : "shirt",
+          "value" : 9,
+          "alternates" : ["shirts"]
         }
       ]
     }
