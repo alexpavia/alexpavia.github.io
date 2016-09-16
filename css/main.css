@@ -7,13 +7,22 @@
     flex-flow: column wrap;
     justify-content: flex-start;
     align-items: center;
-    height: 115px;
-    max-width: 250px;
+    height: 155px;
+    max-width: 370px;
     margin: auto;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px #adadad;
+    padding: 15px;
 }
 .answer-item {
-    margin: 5px 10px;
+    margin: 5px;
     text-transform: capitalize;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ffecb3;
+    background-color: #fffde7;
+    border-radius: 4px;
 }
 .margin-bot {
     margin-bottom: 15px;

@@ -122,11 +122,8 @@
                 <h4>{{currentQuestion.title}}</h4>
 
                 <div class="answers-container">
-                    <p class="answer-item" ng-repeat="answer in currentQuestion.answers">
+                    <p class="answer-item" ng-repeat="answer in currentQuestion.answers" ng-click="revealAnswer(answer)" ng-show="!answer.reveal">
                         <span ng-show="answer.reveal">{{answer.title}} {{answer.value}}</span>
-                        <button type="button" class="btn btn-default" ng-click="revealAnswer(answer)" ng-show="!answer.reveal">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </button>
                     </p>
                 </div>
 
