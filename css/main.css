@@ -20,3 +20,28 @@
     margin: 5px 10px;
     text-transform: capitalize;
 }
+
+ul.list-group {
+    box-shadow: none;
+}
+
+li.list-group-item {
+    border: none;
+}
+
+.thumbnail {
+    min-height: 350px;
+    max-width: 350px;
+}
+
+.margin-bot {
+    margin-bottom: 15px;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.bkg-purple {
+    background: radial-gradient(circle at 1.98% 28.00%, #650163, transparent 100%),radial-gradient(circle at 85.95% 75%, #842966, transparent 100%),radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%)
+}

@@ -19,13 +19,274 @@
     <script type="text/javascript" src="js/app.js"></script>
 
 </head>
-<body ng-controller="mainCTRL">
+<body ng-controller="mainCTRL" ng-cloak>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 page-header">
                 <h1><small>Welcome to the</small><br/>Culture Team Feud!</h1>
             </div>
         </div>
+
+        <div class="row center">
+            <h4>RULES</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Each question (15 total) will have hidden answers that you will need to guess.</li>
+                <li class="list-group-item"><strong class="text-danger">One person at a time,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
+                <li class="list-group-item">Earn points with correct answers, or get a STRIKE for each wrong answer.</li>
+                <li class="list-group-item"><strong>Two strikes</strong> means the question is over, and you move on to the next one.</li>
+                <li class="list-group-item">The culture team with the most points at the end WINS!</li>
+            </ul>
+        </div>
+
+        <!--<div class="row">
+           <div class="col-lg-12 center">
+               <div class="btn-group">
+                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Select your culture team <span class="caret"></span>
+                   </button>
+                   <ul class="dropdown-menu">
+                       <li><a href="#">Black</a></li>
+                       <li><a href="#">Blue</a></li>
+                       <li><a href="#">Gold</a></li>
+                       <li><a href="#">Green</a></li>
+                       <li><a href="#">Paisley</a></li>
+                       <li><a href="#">Platinum</a></li>
+                       <li><a href="#">Psychedelic</a></li>
+                       <li><a href="#">Purple</a></li>
+                       <li><a href="#">Red</a></li>
+                       <li><a href="#">Titanium</a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>-->
+
+        <div class="row center">
+            <h4>SELECT YOUR CULTURE TEAM</h4>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Black</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in blackTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Blue</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in blueTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Gold</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in goldTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Green</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in greenTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Paisley</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in paisleyTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Platinum</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in platinumTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Psychedelic</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in psychedelicTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Purple</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in purpleTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Red</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in redTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Titanium</h3>
+
+                            <div class="row margin-bot">
+                                <div class="col-lg-6" ng-repeat="person in titaniumTeam">
+                                    <div class="input-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">{{person.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- END TEAMS -->
 
         <div class="row">
             <div class="col-lg-12 center">
