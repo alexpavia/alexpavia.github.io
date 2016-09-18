@@ -7,27 +7,32 @@
         {
           "index" : 1,
           "title" : "tights",
-          "value" : 32
+          "value" : 32,
+          "alternates" : ["tights"]
         },
         {
           "index" : 2,
           "title" : "shorts",
-          "value" : 17
+          "value" : 17,
+          "alternates" : ["shorts"]
         },
         {
           "index" : 3,
           "title" : "mask",
-          "value" : 15
+          "value" : 15,
+          "alternates" : ["mask"]
         },
         {
           "index" : 4,
           "title" : "robe",
-          "value" : 9
+          "value" : 9,
+          "alternates" : ["robe"]
         },
         {
           "index" : 5,
           "title" : "cape",
-          "value" : 8
+          "value" : 8,
+          "alternates" : ["cape"]
         }
       ]
     },
@@ -39,28 +44,31 @@
           "index" : 1,
           "title" : "swimming",
           "value" : 44,
-          "alternates" : ["swim", "pool", "water"]
+          "alternates" : ["swimming", "swim", "pool", "water"]
         },
         {
           "index" : 2,
           "title" : "baseball",
-          "value" : 18
+          "value" : 18,
+          "alternates" : ["baseball"]
         },
         {
           "index" : 3,
           "title" : "volleyball",
-          "value" : 17
+          "value" : 17,
+          "alternates" : ["volleyball"]
         },
         {
           "index" : 4,
           "title" : "surfing",
           "value" : 11,
-          "alternates" : ["surf"]
+          "alternates" : ["surf", "surfing"]
         },
         {
           "index" : 5,
           "title" : "boating",
-          "value" : 7
+          "value" : 7,
+          "alternates" : ["boating"]
         }
       ]
     },
@@ -72,31 +80,31 @@
           "index" : 1,
           "title" : "monsters",
           "value" : 37,
-          "alternates" : ["ghost", "demon", "zombie", "evil", "scary"]
+          "alternates" : ["monsters", "ghost", "demon", "zombie", "evil", "scary"]
         },
         {
           "index" : 2,
           "title" : "cars",
           "value" : 22,
-          "alternates" : ["car"]
+          "alternates" : ["cars", "car"]
         },
         {
           "index" : 3,
           "title" : "cops",
           "value" : 19,
-          "alternates" : ["police"]
+          "alternates" : ["cops", "police"]
         },
         {
           "index" : 4,
           "title" : "bad guys",
           "value" : 10,
-          "alternates" : ["villain", "bad", "antagonist", "enemy", "enemies"]
+          "alternates" : ["bad guys", "villain", "bad", "antagonist", "enemy", "enemies"]
         },
         {
           "index" : 5,
           "title" : "dogs",
           "value" : 10,
-          "alternates" : ["dog", "canine", "canines"]
+          "alternates" : ["dogs", "dog", "canine", "canines"]
         }
       ]
     },
@@ -108,30 +116,31 @@
           "index" : 1,
           "title" : "send food back",
           "value" : 40,
-          "alternates" : ["complain"]
+          "alternates" : ["send food back", "complain"]
         },
         {
           "index" : 2,
           "title" : "not tip",
           "value" : 35,
-          "alternates" : ["no tip"]
+          "alternates" : ["not tip", "no tip"]
         },
         {
           "index" : 3,
           "title" : "flirt",
-          "value" : 6
+          "value" : 6,
+          "alternates" : ["flirt", "not tip", "no tip"]
         },
         {
           "index" : 4,
           "title" : "snap fingers",
           "value" : 5,
-          "alternates" : ["snap"]
+          "alternates" : ["snap fingers", "snap"]
         },
         {
           "index" : 5,
           "title" : "spill drinks",
           "value" : 4,
-          "alternates" : ["spill"]
+          "alternates" : ["spill drinks", "spill"]
         }
       ]
     },
@@ -142,28 +151,32 @@
         {
           "index" : 1,
           "title" : "coffee",
-          "value" : 30
+          "value" : 30,
+          "alternates" : ["coffee"]
         },
         {
           "index" : 2,
           "title" : "soup",
-          "value" : 17
+          "value" : 17,
+          "alternates" : ["soup"]
         },
         {
           "index" : 3,
           "title" : "pizza",
-          "value" : 11
+          "value" : 11,
+          "alternates" : ["pizza"]
         },
         {
           "index" : 4,
           "title" : "tea",
-          "value" : 6
+          "value" : 6,
+          "alternates" : ["tea"]
         },
         {
           "index" : 5,
           "title" : "hot cocoa",
           "value" : 4,
-          "alternates" : ["hot chocolate", "cocoa"]
+          "alternates" : ["hot cocoa", "hot chocolate", "cocoa"]
         }
       ]
     },
@@ -180,19 +193,20 @@
         {
           "index" : 2,
           "title" : "zoo",
-          "value" : 20
+          "value" : 20,
+          "alternates" : ["zoo"]
         },
         {
           "index" : 3,
           "title" : "gentleman's club",
           "value" : 18,
-          "alternates" : ["strip club"]
+          "alternates" : ["gentleman's club", "gentlemans club", "strip club"]
         },
         {
           "index" : 4,
           "title" : "china shop",
           "value" : 5,
-          "alternates" : ["chinaware", "china store"]
+          "alternates" : ["china shop", "chinaware", "china store"]
         }
       ]
     },
@@ -204,18 +218,19 @@
           "index" : 1,
           "title" : "another woman",
           "value" : 43,
-          "alternates" : ["girlfriend", "mistress", "secret"]
+          "alternates" : ["girlfriend", "mistress", "secret", "another woman", "woman"]
         },
         {
           "index" : 2,
           "title" : "cell phone",
-          "value" : 27
+          "value" : 27,
+          "alternates" : ["cell phone", "phone", "cell"]
         },
         {
           "index" : 3,
           "title" : "his parents",
           "value" : 13,
-          "alternates" : ["parents", "mother", "mom", "father", "dad"]
+          "alternates" : ["his parents", "parents", "mother", "mom", "father", "dad"]
         },
         {
           "index" : 4,
@@ -227,7 +242,7 @@
           "index" : 5,
           "title" : "golf clubs",
           "value" : 6,
-          "alternates" : ["golf", "clubs"]
+          "alternates" : ["golf clubs", "golf", "clubs"]
         }
       ]
     },
@@ -239,31 +254,31 @@
           "index" : 1,
           "title" : "scream",
           "value" : 43,
-          "alternates" : ["yell"]
+          "alternates" : ["scream", "yell"]
         },
         {
           "index" : 2,
           "title" : "hold arms up",
           "value" : 32,
-          "alternates" : ["raise arms", "raise hands", "hands up", "arms up", "arms above", "hands above"]
+          "alternates" : ["hold arms up", "raise arms", "raise hands", "hands up", "arms up", "arms above", "hands above"]
         },
         {
           "index" : 3,
           "title" : "get sick",
           "value" : 13,
-          "alternates" : ["barf", "throwup", "throw up", "sick", "hurl", "blow chunks", "puke", "dizzy"]
+          "alternates" : ["get sick", "barf", "throwup", "throw up", "sick", "hurl", "blow chunks", "puke", "dizzy"]
         },
         {
           "index" : 4,
           "title" : "laugh",
           "value" : 4,
-          "alternates" : ["cheer", "giggle", "smile", "fun"]
+          "alternates" : ["laugh", "cheer", "giggle", "smile", "fun"]
         },
         {
           "index" : 5,
           "title" : "close their eyes",
           "value" : 4,
-          "alternates" : ["close eyes", "shut", "eyes"]
+          "alternates" : ["close their eyes", "close eyes", "shut", "eyes"]
         }
       ]
     },
@@ -274,27 +289,32 @@
         {
           "index" : 1,
           "title" : "coconut",
-          "value" : 27
+          "value" : 27,
+          "alternates" : ["coconut"]
         },
         {
           "index" : 2,
           "title" : "pineapple",
-          "value" : 26
+          "value" : 26,
+          "alternates" : ["pineapple"]
         },
         {
           "index" : 3,
           "title" : "watermelon",
-          "value" : 22
+          "value" : 22,
+          "alternates" : ["watermelon"]
         },
         {
           "index" : 4,
           "title" : "cantaloupe",
-          "value" : 11
+          "value" : 11,
+          "alternates" : ["cantaloupe"]
         },
         {
           "index" : 5,
           "title" : "pomegranate",
-          "value" : 9
+          "value" : 9,
+          "alternates" : ["pomegranate"]
         }
       ]
     },
@@ -306,31 +326,31 @@
           "index" : 1,
           "title" : "his clothes",
           "value" : 48,
-          "alternates" : ["clothes", "wardrobe", "outfit", "wears", "shirt", "pants", "shoes", "closet"]
+          "alternates" : ["his clothes", "clothes", "wardrobe", "outfit", "wears", "shirt", "pants", "shoes", "closet"]
         },
         {
           "index" : 2,
           "title" : "his attitude",
           "value" : 28,
-          "alternates" : ["attitude", "positive", "happier", "happy", "pleasant"]
+          "alternates" : ["his attitude", "attitude", "positive", "happier", "happy", "pleasant"]
         },
         {
           "index" : 3,
           "title" : "his job",
           "value" : 18,
-          "alternates" : ["job", "career", "work", "profession", "title"]
+          "alternates" : ["his job", "job", "career", "work", "profession", "title"]
         },
         {
           "index" : 4,
           "title" : "eating habits",
           "value" : 3,
-          "alternates" : ["eat", "diet", "food", "health"]
+          "alternates" : ["eating habits", "eat", "diet", "food", "health"]
         },
         {
           "index" : 5,
           "title" : "his snoring",
           "value" : 3,
-          "alternates" : ["snore", "snoring"]
+          "alternates" : ["his snoring", "snore", "snoring"]
         }
       ]
     },
@@ -342,25 +362,25 @@
           "index" : 1,
           "title" : "fear of heights",
           "value" : 30,
-          "alternates" : ["high", "heights", "acrophobia"]
+          "alternates" : ["fear of heights", "high", "heights", "acrophobia"]
         },
         {
           "index" : 2,
           "title" : "fear of spiders",
           "value" : 30,
-          "alternates" : ["spiders", "arachnophobia"]
+          "alternates" : ["fear of spiders", "spiders", "arachnophobia", "spider"]
         },
         {
           "index" : 3,
           "title" : "fear of snakes",
           "value" : 20,
-          "alternates" : ["snakes", "ophidiophobia"]
+          "alternates" : ["fear of snakes", "snakes", "ophidiophobia", "snake"]
         },
         {
           "index" : 4,
           "title" : "fear of open spaces",
           "value" : 20,
-          "alternates" : ["crowd", "open space", "agoraphobia", "lots of people"]
+          "alternates" : ["fear of open spaces", "crowd", "open space", "agoraphobia", "lots of people", "big spaces"]
         }
       ]
     },
@@ -371,22 +391,26 @@
         {
           "index" : 1,
           "title" : "bear",
-          "value" : 39
+          "value" : 39,
+          "alternates" : ["bear"]
         },
         {
           "index" : 2,
           "title" : "skunk",
-          "value" : 28
+          "value" : 28,
+          "alternates" : ["skunk"]
         },
         {
           "index" : 3,
           "title" : "raccoon",
-          "value" : 18
+          "value" : 18,
+          "alternates" : ["raccoon"]
         },
         {
           "index" : 4,
           "title" : "lion",
-          "value" : 15
+          "value" : 15,
+          "alternates" : ["lion"]
         }
       ]
     },
@@ -397,29 +421,32 @@
         {
           "index" : 1,
           "title" : "godzilla",
-          "value" : 38
+          "value" : 38,
+          "alternates" : ["godzilla"]
         },
         {
           "index" : 2,
           "title" : "frankenstein",
-          "value" : 22
+          "value" : 22,
+          "alternates" : ["frankenstein"]
         },
         {
           "index" : 3,
           "title" : "freddy krueger",
           "value" : 20,
-          "alternates" : ["freddy", "krueger", "kruger"]
+          "alternates" : ["freddy krueger","freddy", "krueger", "kruger"]
         },
         {
           "index" : 4,
           "title" : "king kong",
-          "value" : 11
+          "value" : 11,
+          "alternates" : ["king kong", "kong"]
         },
         {
           "index" : 5,
           "title" : "sulley",
           "value" : 9,
-          "alternates" : ["sully", "sullivan", "james sullivan"]
+          "alternates" : ["sulley", "sully", "sullivan", "james sullivan"]
         }
       ]
     },
@@ -437,13 +464,13 @@
           "index" : 2,
           "title" : "use cell phone",
           "value" : 24,
-          "alternates" : ["text", "texting", "phone", "social media", "facebook", "tweet", "snapchat", "instagram"]
+          "alternates" : ["use cell phone", "text", "texting", "phone", "social media", "facebook", "tweet", "snapchat", "instagram"]
         },
         {
           "index" : 3,
           "title" : "sleep",
           "value" : 22,
-          "alternates" : ["nap", "snooze", "drowsy", "tired", "sleep"]
+          "alternates" : ["sleep", "nap", "snooze", "drowsy", "tired", "sleep"]
         },
         {
           "index" : 4,
@@ -454,7 +481,8 @@
         {
           "index" : 5,
           "title" : "read",
-          "value" : 8
+          "value" : 8,
+          "alternates" : ["read"]
         }
       ]
     },
@@ -465,13 +493,14 @@
         {
           "index" : 1,
           "title" : "coat",
-          "value" : 38
+          "value" : 38,
+          "alternates" : ["coat", "winter coat"]
         },
         {
           "index" : 2,
           "title" : "sweater",
           "value" : 22,
-          "alternates" : ["turtleneck", "jumper"]
+          "alternates" : ["sweater", "turtleneck", "jumper", "knit"]
         },
         {
           "index" : 3,
@@ -482,13 +511,14 @@
         {
           "index" : 4,
           "title" : "socks",
-          "value" : 11
+          "value" : 11,
+          "alternates" : ["socks"]
         },
         {
           "index" : 5,
           "title" : "shirt",
           "value" : 9,
-          "alternates" : ["shirts"]
+          "alternates" : ["shirt", "shirts", "long sleeve shirt", "long sleeved shirt", "long sleeve shirts"]
         }
       ]
     }

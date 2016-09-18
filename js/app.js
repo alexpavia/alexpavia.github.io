@@ -1,11 +1,12 @@
 var app = angular.module("APP", []);
 
-app.controller("mainCTRL", function($scope, $http){
+app.controller("mainCTRL", function($scope, $http, $timeout){
     $http({
         method: "GET",
         url: "questions.json"
     }).then(function(data){
         $scope.questions = data.data.questions;
+        grandTotalPoints();
     });
     $http({
         method: "GET",
@@ -24,6 +25,16 @@ app.controller("mainCTRL", function($scope, $http){
     $scope.hasStarted = false;
     $scope.currentQuestion = {};
 
+    function grandTotalPoints() {
+        var total = 0;
+        for (var i = 0; i < $scope.questions.length; i++) {
+            for (var j = 0; j < $scope.questions[i].answers.length; j++) {
+                total += $scope.questions[i].answers[j].value;
+            }
+        }
+        $scope.grandTotal = total;
+    }
+    
     $scope.reset = function() {
         $scope.hasStarted = false;
         $scope.currentQuestion = {};
@@ -39,52 +50,62 @@ app.controller("mainCTRL", function($scope, $http){
             $scope.purpleTeam = {
                 "name" : "purple",
                 "people" : getTeam("purple"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Brittany Marshall"
             },
-            $scope.platinumTeam = {
+            /*$scope.platinumTeam = {
                 "name" : "platinum",
                 "people" : getTeam("platinum"),
-                "hasFocus" : false
-            },
+                "hasFocus" : false,
+                "liaison" : "Maggie Smothers"
+            },*/
             $scope.goldTeam = {
                 "name" : "gold",
                 "people" : getTeam("gold"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Mindie Meyers"
             },
             $scope.paisleyTeam = {
                 "name" : "paisley",
                 "people" : getTeam("paisley"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Rebecca Houchin"
             },
             $scope.titaniumTeam = {
                 "name" : "titanium",
                 "people" : getTeam("titanium"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Jyllian Anderson"
             },
             $scope.blackTeam = {
                 "name" : "black",
                 "people" : getTeam("black"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "CarrieAnna McFadden"
             },
             $scope.psychedelicTeam = {
                 "name" : "psychedelic",
                 "people" : getTeam("psychedelic"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Jenny Ellingson"
             },
             $scope.greenTeam = {
                 "name" : "green",
                 "people" : getTeam("green"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Angelena Kharchenko"
             },
             $scope.blueTeam = {
                 "name" : "blue",
                 "people" : getTeam("blue"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Jordan Manchester"
             },
             $scope.redTeam = {
                 "name" : "red",
                 "people" : getTeam("red"),
-                "hasFocus" : false
+                "hasFocus" : false,
+                "liaison" : "Kelli Hullaby"
             }
         ];
     });
@@ -137,8 +158,34 @@ app.controller("mainCTRL", function($scope, $http){
         $scope.readyToStart = true;
     };
 
+    $scope.allPeoplePlaying = false;
+    $scope.$watch('allPeoplePlaying', function(n, o){
+        if ($scope.teamFocused) {
+            for (var i=0; i < $scope.focusedTeam.people.length; i++) {
+                $scope.focusedTeam.people[i].playing = n;
+            }
+        }
+    });
+
+    $scope.toggleCheckAll = function(team) {
+        for (var i=0; i < team.people.length; i++) {
+            team.people[i].playing = !team.people[i].playing;
+        }
+    };
+
 
     /*THE GAME VARS AND FUNCTIONS*/
+
+    $scope.finalAnswer = "";
+    $scope.strikes = 0;
+    $scope.questionPoints = 0;
+    $scope.totalPoints = 0;
+    $scope.checkingAnswer = false;
+    $scope.loadingQuestion = false;
+    $scope.finished = false;
+    $scope.currentPlayerName = '';
+
+    var display = document.querySelector('#time');
 
     $scope.start = function() {
         $scope.hasStarted = true;
@@ -148,6 +195,8 @@ app.controller("mainCTRL", function($scope, $http){
 
         loadQuestion($scope.currentQuestionNum);
         $scope.teamPlaying.players[$scope.currentPlayerNum].going = true;
+        $scope.currentPlayerName = $scope.teamPlaying.players[$scope.currentPlayerNum].name;
+        startTimer(15, display);
     };
 
     function loadQuestion(num) {
@@ -157,6 +206,7 @@ app.controller("mainCTRL", function($scope, $http){
                 break;
             }
         }
+        $scope.loadingQuestion = false;
     }
 
     function setPlayer(currentPlayerNum) {
@@ -167,17 +217,131 @@ app.controller("mainCTRL", function($scope, $http){
         $scope.currentPlayerNum = nextNum;
         $scope.teamPlaying.players[currentPlayerNum].going = false;
         $scope.teamPlaying.players[$scope.currentPlayerNum].going = true;
+        $scope.currentPlayerName = $scope.teamPlaying.players[$scope.currentPlayerNum].name;
+
+        startTimer(15, display);
     }
 
     $scope.nextQuestion = function(){
-        $scope.currentQuestionNum += 1;
-        loadQuestion($scope.currentQuestionNum);
-        setPlayer($scope.currentPlayerNum);
+        $scope.loadingQuestion = true;
+
+        if ($scope.currentQuestionNum == 15) {
+            $scope.gameFinished();
+        } else {
+            $timeout(function(){
+                $scope.totalPoints += $scope.questionPoints;
+                $scope.currentQuestionNum += 1;
+
+                $scope.strikes = 0;
+                $scope.questionPoints = 0;
+                loadQuestion($scope.currentQuestionNum);
+                setPlayer($scope.currentPlayerNum);
+            }, 4000);
+        }
+    };
+
+    $scope.submitAnswer = function(question, answer) {
+        $scope.checkingAnswer = true;
+
+        var matched = false;
+        for (var i = 0; i < question.answers.length; i++) {
+            for (var j = 0; j < question.answers[i].alternates.length; j++) {
+                if (answer == question.answers[i].alternates[j]) {
+                    //matches answer
+                    matched = true;
+                    $scope.checkingAnswer = false;
+
+                    $scope.showCorrectMessage();
+                    $scope.revealAnswer(question.answers[i]);
+                    giveQuestionPoints(question.answers[i].value);
+                    clearInterval(interval);
+                    
+                    $timeout(function(){
+                        setPlayer($scope.currentPlayerNum);
+                        $scope.finalAnswer = "";
+                    }, 3000);
+
+                    break;
+                } else {
+                    //move to next answer
+                }
+            }
+        }
+        if (!matched) {
+            //wrong answer
+            clearInterval(interval);
+            $scope.showFailMessage();
+            $timeout(function(){
+                $scope.checkingAnswer = false;
+                $scope.forceNext();
+            }, 3000);
+
+        }
+    };
+
+    $scope.showCorrectMessage = function() {
+        $scope.showSuccess = true;
+        $timeout(function(){
+           $scope.showSuccess = false;
+        }, 3000);
+    };
+
+    $scope.showFailMessage = function() {
+        $scope.showFail = true;
+        $timeout(function(){
+            $scope.showFail = false;
+        }, 3000);
     };
 
     $scope.revealAnswer = function(answer) {
         answer.reveal = true;
     };
 
+    function giveQuestionPoints(value) {
+        $scope.questionPoints += value;
+    }
 
+    $scope.forceNext = function() {
+        $scope.strikes += 1;
+        $scope.finalAnswer = "";
+        if ($scope.strikes == 2) {
+            $timeout(function(){
+                $scope.nextQuestion();
+            });
+        } else {
+            $timeout(function(){
+                setPlayer($scope.currentPlayerNum);
+            });
+        }
+
+    };
+
+    $scope.gameFinished = function() {
+        $scope.finished = true;
+        $scope.teamPlaying.players[$scope.currentPlayerNum].going = false;
+        clearInterval(interval);
+    };
+
+    var interval;
+    function startTimer(duration, display) {
+        clearInterval(interval);
+        var timer = duration, minutes, seconds;
+        interval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+            if (seconds == undefined || seconds == "00") {
+                clearInterval(interval);
+                $scope.forceNext();
+            }
+        }, 1000);
+    }
 });

@@ -19,7 +19,7 @@
     <script type="text/javascript" src="js/app.js"></script>
 
 </head>
-<body ng-controller="mainCTRL" ng-cloak>
+<body ng-controller="mainCTRL" style="background:#fafafa;" ng-cloak>
     <div class="container center">
         <div class="row">
             <div class="col-lg-12 page-header">
@@ -29,7 +29,7 @@
 
         <!-- THE PREPARATION -->
         <div class="row" ng-show="!hasStarted && !readyToStart">
-            <div class="margin-bot">
+            <div class="margin-bot" style="color:#37474f;">
                 <!--<button type="button" class="btn btn-primary" ng-click="showTeams = !showTeams">
                     SELECT YOUR CULTURE TEAM
                     <span class="glyphicon" ng-class="{'glyphicon-triangle-bottom': !showTeams, 'glyphicon-triangle-top': showTeams}"></span>
@@ -46,10 +46,29 @@
                      ng-class="{focusedTeam: team.hasFocus}">
                     <div class="thumbnail">
                         <div class="caption">
-                            <h3><strong>{{team.name | uppercase}}</strong></h3>
+                            <div style="color:#546e7a;">
+                                <h5 style="margin:0;">{{team.liaison}}'s</h5>
+                                <h3 style="color:#263238;margin: 5px 0;"><strong>{{team.name | uppercase}}</strong></h3>
+                                <h5 style="margin:0 0 10px;">Team</h5>
+                            </div>
+
+
                             <div class="row margin-bot" ng-show="team.hasFocus">
                                 <h4 class="text-primary">Select team members to play:</h4>
-                                <div class="col-lg-6" ng-repeat="person in team.people">
+
+                                <div class="col-sm-12 center">
+                                    <div class="input-group" style="margin:auto;color:#37474f;">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" ng-model="$parent.allPeoplePlaying">
+                                                <span>Everyone's here!</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-6" ng-repeat="person in team.people">
                                     <div class="input-group">
                                         <div class="checkbox">
                                             <label>
@@ -61,8 +80,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <p>
-                                    <a ng-click="focusTeam(team)" ng-show="!teamFocused" class="btn btn-primary" role="button">Choose team</a>
+                                <p class="flex-buttons">
+                                    <a ng-click="focusTeam(team)" ng-show="!teamFocused" class="btn btn-default" role="button">Select</a>
                                     <a ng-click="unfocusTeam(team)" ng-show="teamFocused" class="btn btn-danger" role="button">Wrong team</a>
                                     <a ng-click="confirmTeam(team)" ng-show="teamFocused" ng-disabled="players.length==0" class="btn btn-success" role="button">Confirm</a>
                                 </p>
@@ -75,13 +94,13 @@
         </div>
 
         <div ng-show="readyToStart">
-            <h3 class="team-name">TEAM {{teamPlaying.name | uppercase}}</h3>
+            <!--<h3 class="team-name">TEAM {{teamPlaying.name | uppercase}}</h3>-->
             <div class="row players-row">
                 <div ng-repeat="player in teamPlaying.players">
                     <a href="#" class="thumbnail player-thumb" ng-class="{going: player.going}">
                         <img ng-src="images/people/{{player.imgSrc}}" alt="...">
                         <div class="caption">
-                            <p><strong>{{player.name}}</strong></p>
+                            <p class="margin-none" style="color:#546e7a;"><strong>{{player.name}}</strong></p>
                         </div>
                     </a>
                 </div>
@@ -94,8 +113,8 @@
 
             <div class="row center">
                 <div>
-                    <h4>RULES</h4>
-                    <ul class="list-group">
+                    <h3>OK, here are the rules:</h3>
+                    <ul class="list-group" style="font-size: 17px;">
                         <li class="list-group-item">Each question (15 total) will have hidden answers that you will need to guess.</li>
                         <li class="list-group-item"><strong class="text-danger">One person at a time,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
                         <li class="list-group-item">Earn points with correct answers, or get a STRIKE for each wrong answer.</li>
@@ -109,28 +128,87 @@
 
                 <div class="col-lg-12 center">
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-success" ng-click="start()">START!</button>
+                        <button type="button" class="btn btn-success" ng-click="start()">Let's Play!</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- THE GAME -->
-        <div class="row" ng-show="hasStarted">
-            <div class="col-lg-12 center">
-                <span>#{{currentQuestion.index}}</span>
-                <h4>{{currentQuestion.title}}</h4>
+        <div class="row" ng-show="hasStarted && !finished">
+            <div class="col-sm-12 center">
+                <span style="font-size:20px;color:#b0bec5">#{{loadingQuestion ? "..." : currentQuestion.index}}</span>
 
-                <div class="answers-container">
-                    <p class="answer-item" ng-repeat="answer in currentQuestion.answers" ng-click="revealAnswer(answer)" ng-show="!answer.reveal">
-                        <span ng-show="answer.reveal">{{answer.title}} {{answer.value}}</span>
-                    </p>
+                <h4 class="margin-bot" style="font-size:20px;color:#546e7a">{{loadingQuestion ? "..." : currentQuestion.title}}</h4>
+
+                <div class="gameboard">
+                    <div class="row players-row" ng-show="hasStarted">
+                        <div class="">
+                            <div class="timer">
+                                <h4>Time</h4>
+                                <span id="time">00:15</span>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="timer">
+                                <h4>Strikes</h4>
+                                <span>{{strikes}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="answers-container">
+                        <p class="answer-item" ng-repeat="answer in currentQuestion.answers" ng-click="revealAnswer(answer)" ng-class="{showAnswer : !answer.reveal}">
+                            <span ng-show="answer.reveal">{{answer.title}} {{answer.value}}</span>
+                        </p>
+                    </div>
+
+                    <div class="messages">
+                        <div class="alert alert-success" role="alert" ng-show="showSuccess">
+                            <strong>Woo!</strong> Good answer! Points awarded.
+                        </div>
+                        <div class="alert alert-danger" role="alert" ng-show="showFail">
+                            <strong>STRIKE!</strong> Sorry, that wasn't one of the answers.
+                        </div>
+                        <div class="alert alert-info" role="alert" ng-show="!showSuccess && !showFail">
+                            <strong ng-show="!loadingQuestion">Good luck, {{currentPlayerName}}! You're up!</strong>
+                            <strong ng-show="loadingQuestion">Loading next question...</strong>
+                        </div>
+                    </div>
+
+                    <div class="row players-row">
+                        <div class="points margin-bot">
+                            <h4>Points</h4>
+                            <span>{{questionPoints}}</span>
+                        </div>
+
+                        <div class="points">
+                            <h4>Total</h4>
+                            <span>{{totalPoints}}</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default" ng-click="reset()">Reset</button>
-                    <button type="button" class="btn btn-primary" ng-click="nextQuestion()">Next</button>
-                </div>
+                <form ng-submit="submitAnswer(currentQuestion, finalAnswer)">
+                    <div class="input-group input-group-lg margin-top" style="max-width:600px;">
+                        <input type="text" class="form-control" placeholder="Enter answer..." ng-model="finalAnswer" ng-disabled="checkingAnswer" aria-describedby="sizing-addon1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit" ng-disabled="checkingAnswer">Final answer!</button>
+                        </span>
+                    </div>
+                </form>
+
+                <button class="btn btn-default" type="button" ng-click="gameFinished()">Go to end ></button>
+            </div>
+        </div>
+
+        <div ng-show="finished">
+            <div class="jumbotron">
+                <h1>Game over!</h1>
+                <h2>Here are your results...</h2>
+                <p>Your team scored <strong>{{totalPoints}} out of {{grandTotal}}</strong> possible points!</p>
+
             </div>
         </div>
 
