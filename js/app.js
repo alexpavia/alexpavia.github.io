@@ -396,9 +396,6 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
         $scope.bonusBagOpened = true;
         $scope.bonusBagResult = genRandomNum(25, 50);
         $scope.totalPoints += $scope.bonusBagResult;
-        $timeout(function(){
-            $scope.resetBonus();
-        });
 
     };
 
