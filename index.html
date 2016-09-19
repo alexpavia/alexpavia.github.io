@@ -19,7 +19,7 @@
     <script type="text/javascript" src="js/app.js"></script>
 
 </head>
-<body ng-controller="mainCTRL" style="background:#fafafa;" ng-cloak>
+<body ng-controller="mainCTRL" style="background:#fafafa;overflow:scroll;" ng-cloak>
     <div class="container center">
         <div class="row">
             <div class="col-lg-12 page-header">
@@ -119,6 +119,7 @@
                         <li class="list-group-item"><strong class="text-danger">One person at a time,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
                         <li class="list-group-item">Earn points with correct answers, or get a STRIKE for each wrong answer.</li>
                         <li class="list-group-item"><strong>Two strikes</strong> means the question is over, and you move on to the next one.</li>
+                        <li class="list-group-item"><strong>Mute your microphone</strong> when it's not your turn!</li>
                         <li class="list-group-item">The culture team with the most points at the end WINS!</li>
                     </ul>
                 </div>
@@ -204,10 +205,197 @@
         </div>
 
         <div ng-show="finished">
-            <div class="jumbotron">
-                <h1>Game over!</h1>
-                <h2>Here are your results...</h2>
-                <p>Your team scored <strong>{{totalPoints}} out of {{grandTotal}}</strong> possible points!</p>
+            <div class="" ng-show="!startBonus">
+                <h2>Complete!</h2>
+                <h4>You made it through all 15 questions!<br/>Here is your score:</h4>
+                <strong style="margin-top:20px;font-size:28px;">{{totalPoints}}</strong>
+                <br/>
+                <h3>Let's try answering a few bonus questions and raise your score!</h3>
+                <ul class="list-group" style="font-size: 17px;">
+                    <li class="list-group-item">2 bonus questions!</li>
+                    <li class="list-group-item"><strong class="text-danger">As a team,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
+                    <li class="list-group-item">Earn a mystery prize for each correct answer!</li>
+                </ul>
+                <button class="btn btn-primary" type="button" ng-click="showBonus()">Answer bonus questions</button>
+            </div>
+
+            <div ng-show="startBonus && !showFinalScreen">
+                <div class="timer">
+                    <h4>Time</h4>
+                    <span id="time2">00:15</span>
+                </div>
+
+                <div ng-show="showBonus1 && !showBonus1Result">
+                    <h4 class="margin-bot" style="font-size:20px;color:#546e7a">What is the most popular starting month for WealthCounsel employees?</h4>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4" ng-repeat="month in months" ng-click="answerBonus(month)" style="cursor:pointer;">
+                            <div class="thumbnail">
+                                <div class="caption" style="border:3px solid #607d8b;">
+                                    <p>{{month}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="showBonus1Result && !showBonus1 && !showBonus2">
+                    <div ng-show="bonusRight && showBonus1Result">
+                        <div ng-show="!bonusPrizeChosen">
+                            <h2>November, correct!</h2>
+                            <h4>Choose a prize:</h4>
+                        </div>
+
+                        <div class="row flex-buttons" ng-show="!bonusPrizeChosen">
+                            <div class="col-sm-6 col-md-4">
+                                <div class="bonus-item" ng-click="bonusBag()">
+                                    <div class="caption">
+                                        <h3>Mystery Bag of Points</h3>
+                                        <p>Receive a random number of bonus points to add to your score!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="bonus-item" ng-click="bonusBomb()">
+                                    <div class="caption">
+                                        <h3>Mystery Bomb</h3>
+                                        <p>Bomb another culture team and take away a random number of points!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-show="bonusPrizeChosen">
+                            <div ng-show="bonusBagOpened">
+                                <h3>Your mystery bag contained <strong>{{bonusBagResult}}</strong> points! Woo!</h3>
+                                <button class="btn btn-primary" type="button" ng-click="showBonus()" style="margin-top:35px;">Bonus Question 2</button>
+                            </div>
+
+                            <div ng-show="bonusBombOpened">
+                                <div ng-show="!targetChosen">
+                                    <h3>Who do you want to bomb?</h3>
+                                    <div class="col-sm-6 col-md-4" ng-repeat="team in teams | orderBy: 'name'" ng-click="applyBomb(team)" style="cursor:pointer;">
+                                        <div class="thumbnail">
+                                            <div class="caption" style="border:3px solid #607d8b;">
+                                                <div style="color:#546e7a;">
+                                                    <h5 style="margin:0;">{{team.liaison}}'s</h5>
+                                                    <h3 style="color:#263238;margin: 5px 0;"><strong>{{team.name | uppercase}}</strong></h3>
+                                                    <h5 style="margin:0 0 10px;">Team</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-show="targetChosen">
+                                    <h3>You bombed the <strong>{{targetName | uppercase}}</strong> team for <strong>{{bonusBombResult}}</strong> points!<br/>GET SOME!</h3>
+                                    <button class="btn btn-primary" type="button" ng-click="showBonus()" style="margin-top:35px;">Bonus Question 2</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div ng-show="bonusWrong && showBonus1Result">
+                        <h2>Aww... the correct answer was November!</h2>
+                        <button class="btn btn-primary" type="button" ng-click="showBonus()" style="margin-top:35px;">Bonus Question 2</button>
+                    </div>
+
+
+                </div>
+
+                <div ng-show="showBonus2 && !showBonus2Result">
+                    <h4 class="margin-bot" style="font-size:20px;color:#546e7a">What month do most WealthCounsel employees have a birthday?</h4>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4" ng-repeat="month in months" ng-click="answerBonus(month)" style="cursor:pointer;">
+                            <div class="thumbnail">
+                                <div class="caption" style="border:3px solid #607d8b;">
+                                    <p>{{month}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="showBonus2Result && !showBonus2">
+                    <div ng-show="bonusRight && showBonus2Result">
+                        <div ng-show="!bonusPrizeChosen">
+                            <h2>November, correct!</h2>
+                            <h4>Choose a prize:</h4>
+                        </div>
+
+                        <div class="row flex-buttons" ng-show="!bonusPrizeChosen">
+                            <div class="col-sm-6 col-md-4">
+                                <div class="bonus-item" ng-click="bonusBag()">
+                                    <div class="caption">
+                                        <h3>Mystery Bag of Points</h3>
+                                        <p>Receive a random number of bonus points to add to your score!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="bonus-item" ng-click="bonusBomb()">
+                                    <div class="caption">
+                                        <h3>Mystery Bomb</h3>
+                                        <p>Bomb another culture team and take away a random number of points!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-show="bonusPrizeChosen">
+                            <div ng-show="bonusBagOpened">
+                                <h3>Your mystery bag contained <strong>{{bonusBagResult}}</strong> points! Woo!</h3>
+                                <button class="btn btn-primary" type="button" ng-click="end()">Final Score</button>
+                            </div>
+
+                            <div ng-show="bonusBombOpened">
+                                <div ng-show="!targetChosen">
+                                    <h3>Who do you want to bomb?</h3>
+                                    <div class="col-sm-6 col-md-4" ng-repeat="team in teams | orderBy: 'name'" ng-click="applyBomb(team)" style="cursor:pointer;">
+                                        <div class="thumbnail">
+                                            <div class="caption" style="border:3px solid #607d8b;">
+                                                <div style="color:#546e7a;">
+                                                    <h5 style="margin:0;">{{team.liaison}}'s</h5>
+                                                    <h3 style="color:#263238;margin: 5px 0;"><strong>{{team.name | uppercase}}</strong></h3>
+                                                    <h5 style="margin:0 0 10px;">Team</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-show="targetChosen">
+                                    <h3>You bombed the <strong>{{targetName | uppercase}}</strong> team for <strong>{{bonusBombResult}}</strong> points!<br/>GET SOME!</h3>
+                                    <button class="btn btn-primary" type="button" ng-click="end()">Final Score</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div ng-show="bonusWrong && showBonus2Result">
+                        <h2>Aww... the correct answer was November!</h2>
+                        <button class="btn btn-primary" type="button" ng-click="end()">Final Score</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div ng-show="showFinalScreen">
+                <h2>Congratulations, you finished!</h2>
+                <h4>Your final score is:</h4>
+                <strong style="margin-top:20px;font-size:28px;">{{totalPoints}}!</strong>
+                <div ng-show="bombedTeams.length > 0">
+                    <h4>Bomb results:</h4>
+                    <h5 style="font-size:16px;" ng-repeat="bteam in bombedTeams">
+                        The {{bteam.name | uppercase}} team: <span style="color:red;font-weight:bold;">{{bteam.value}} points!</span>
+                    </h5>
+                </div>
+                <div style="margin-top:20px;">
+                    <h3>Thanks for playing!</h3>
+                    <p><strong>Please take a screenshot of this page and email it to Jenny Ellingson. Thanks!</strong></p>
+                </div>
 
             </div>
         </div>

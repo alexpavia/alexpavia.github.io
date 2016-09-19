@@ -15,6 +15,12 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
         $scope.people = data.data;
         $scope.$broadcast('peopleLoaded');
     });
+    $http({
+        method: "GET",
+        url: "months.json"
+    }).then(function(data){
+        $scope.months = data.data;
+    });
 
     $scope.showTeams = false;
     $scope.teamFocused = false;
@@ -186,6 +192,7 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
     $scope.currentPlayerName = '';
 
     var display = document.querySelector('#time');
+    var display2 = document.querySelector('#time2');
 
     $scope.start = function() {
         $scope.hasStarted = true;
@@ -322,6 +329,116 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
         clearInterval(interval);
     };
 
+    $scope.startBonus = false;
+    $scope.showBonus1 = false;
+    $scope.showBonus2 = false;
+    $scope.showBonus1Result = false;
+    $scope.showBonus2Result = false;
+    $scope.showFinalScreen = false;
+    $scope.bonusRight = false;
+    $scope.bonusWrong = false;
+
+    $scope.showBonus = function() {
+        if (!$scope.startBonus) {
+            $scope.startBonus = true;
+            $scope.showBonus1 = true;
+            startTimer(15, display2)
+        } else {
+            $scope.resetBonus();
+            $scope.bonusRight = false;
+            $scope.bonusWrong = false;
+            $scope.showBonus2Result = false;
+            $scope.showBonus2 = true;
+            startTimer(15, display2)
+        }
+    };
+
+    $scope.endBonusQuestion = function() {
+        if ($scope.showBonus1) {
+            $timeout(function(){
+                $scope.showBonus1 = false;
+                $scope.showBonus1Result = true;
+            });
+        } else {
+            $timeout(function(){
+                $scope.showBonus1Result = false;
+                $scope.showBonus2 = false;
+                $scope.showBonus2Result = true;
+            });
+        }
+    };
+
+    $scope.answerBonus = function(answer) {
+        $timeout(function(){
+            if (answer == "November") {
+                $scope.bonusRight = true;
+                $scope.bonusWrong = false;
+            } else {
+                $scope.bonusRight = false;
+                $scope.bonusWrong = true;
+            }
+            clearInterval(interval);
+            $scope.endBonusQuestion();
+        });
+
+    };
+
+    $scope.bonusBagResult = 0;
+    $scope.bonusBagOpened = false;
+    $scope.bonusPrizeChosen = false;
+    $scope.bonusBombOpened = false;
+    $scope.targetChosen = false;
+    $scope.bombedTeams = [];
+    $scope.bonusBombResult = 0;
+
+    $scope.bonusBag = function() {
+        $scope.bonusPrizeChosen = true;
+        $scope.bonusBagOpened = true;
+        $scope.bonusBagResult = genRandomNum(25, 50);
+        $scope.totalPoints += $scope.bonusBagResult;
+        $timeout(function(){
+            $scope.resetBonus();
+        });
+
+    };
+
+    $scope.resetBonus = function() {
+        $scope.bonusBagResult = 0;
+        $scope.bonusBagOpened = false;
+        $scope.bonusPrizeChosen = false;
+        $scope.bonusBombResult = 0;
+        $scope.bonusBombOpened = false;
+        $scope.bonusPrizeChosen = false;
+        $scope.targetChosen = false;
+        $scope.targetName = "";
+    };
+
+    $scope.bonusBomb = function() {
+        $scope.bonusPrizeChosen = true;
+        $scope.bonusBombOpened = true;
+        $scope.showTeamsBomb = true;
+    };
+
+    $scope.applyBomb = function(team) {
+        $scope.targetChosen = true;
+        $scope.targetName = team.name;
+        $scope.bonusBombResult = genRandomNum(1, 100);
+        var obj = {
+            name : $scope.targetName,
+            value : $scope.bonusBombResult
+        };
+        $scope.bombedTeams.push(obj);
+    };
+
+    function genRandomNum(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    $scope.end = function() {
+        $scope.showFinalScreen = true;
+        console.log($scope.bombedTeams);
+    };
+
     var interval;
     function startTimer(duration, display) {
         clearInterval(interval);
@@ -339,8 +456,14 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
                 timer = duration;
             }
             if (seconds == undefined || seconds == "00") {
-                clearInterval(interval);
-                $scope.forceNext();
+                if (!$scope.startBonus) {
+                    clearInterval(interval);
+                    $scope.forceNext();
+                } else {
+                    clearInterval(interval);
+                    $scope.bonusWrong = true;
+                    $scope.endBonusQuestion();
+                }
             }
         }, 1000);
     }

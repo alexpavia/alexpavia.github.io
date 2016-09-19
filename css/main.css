@@ -112,6 +112,12 @@ a.player-thumb img {
     width: 75%;
     margin: auto;
 }
+.bonus-item {
+    border:2px solid orange;
+    border-radius:4px;
+    cursor:pointer;
+    background-color:#fff;
+}
 
 /*///// BOOTSTRAP OVERRIDES /////*/
 .page-header {
