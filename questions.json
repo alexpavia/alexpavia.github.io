@@ -2,30 +2,6 @@
   "questions" : [
     {
       "index" : 1,
-      "title" : "What are the most popular favorite colors among little girls?",
-      "answers" : [
-        {
-          "index" : 1,
-          "title" : "Pink",
-          "value" : 32,
-          "alternates" : ["pink"]
-        },
-        {
-          "index" : 2,
-          "title" : "Blue",
-          "value" : 17,
-          "alternates" : ["blue"]
-        },
-        {
-          "index" : 3,
-          "title" : "Yellow",
-          "value" : 15,
-          "alternates" : ["yellow"]
-        }
-      ]
-    },
-    {
-      "index" : 1,
       "title" : "Name a Garment You'd Probably Find in the Dressing Room for a Pro-Wrestling Event",
       "answers" : [
         {
