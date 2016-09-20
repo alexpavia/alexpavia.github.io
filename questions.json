@@ -122,7 +122,7 @@
           "index" : 4,
           "title" : "bad guys",
           "value" : 10,
-          "alternates" : ["bad guys", "villain", "bad", "antagonist", "enemy", "enemies"]
+          "alternates" : ["bad guys", "bad guy", "villain", "bad", "antagonist", "enemy", "enemies"]
         },
         {
           "index" : 5,
@@ -152,7 +152,7 @@
           "index" : 3,
           "title" : "flirt",
           "value" : 6,
-          "alternates" : ["flirt", "not tip", "no tip"]
+          "alternates" : ["flirt"]
         },
         {
           "index" : 4,
@@ -212,7 +212,7 @@
           "index" : 1,
           "title" : "museum/gallery",
           "value" : 68,
-          "alternates" : ["museum", "gallery", "art"]
+          "alternates" : ["museum", "gallery", "art place"]
         },
         {
           "index" : 2,
@@ -230,7 +230,7 @@
           "index" : 4,
           "title" : "china shop",
           "value" : 5,
-          "alternates" : ["china shop", "chinaware", "china store"]
+          "alternates" : ["china shop", "china store"]
         }
       ]
     },
@@ -248,13 +248,13 @@
           "index" : 2,
           "title" : "cell phone",
           "value" : 27,
-          "alternates" : ["cell phone", "phone", "cell"]
+          "alternates" : ["cell phone", "phone", "cellular"]
         },
         {
           "index" : 3,
           "title" : "his parents",
           "value" : 13,
-          "alternates" : ["his parents", "parents", "mother", "mom", "father", "dad"]
+          "alternates" : ["his parents", "parents", "mom and dad", "mother and father"]
         },
         {
           "index" : 4,
@@ -266,7 +266,7 @@
           "index" : 5,
           "title" : "golf clubs",
           "value" : 6,
-          "alternates" : ["golf clubs", "golf", "clubs"]
+          "alternates" : ["golf clubs", "golf gear"]
         }
       ]
     },
@@ -284,25 +284,25 @@
           "index" : 2,
           "title" : "hold arms up",
           "value" : 32,
-          "alternates" : ["hold arms up", "raise arms", "raise hands", "hands up", "arms up", "arms above", "hands above"]
+          "alternates" : ["hold arms up", "raise arms", "raise hands", "hands up", "arms up", "arms above", "hands above", "put hands up"]
         },
         {
           "index" : 3,
           "title" : "get sick",
           "value" : 13,
-          "alternates" : ["get sick", "barf", "throwup", "throw up", "sick", "hurl", "blow chunks", "puke", "dizzy"]
+          "alternates" : ["get sick", "barf", "throwup", "throw up", "sick", "hurl", "blow chunks", "puke", "dizzy", "motion sickness"]
         },
         {
           "index" : 4,
           "title" : "laugh",
           "value" : 4,
-          "alternates" : ["laugh", "cheer", "giggle", "smile", "fun"]
+          "alternates" : ["laugh", "cheer", "giggle", "smile", "have fun"]
         },
         {
           "index" : 5,
           "title" : "close their eyes",
           "value" : 4,
-          "alternates" : ["close their eyes", "close eyes", "shut", "eyes"]
+          "alternates" : ["close their eyes", "close eyes", "shut", "eyes", "shut their eyes"]
         }
       ]
     },
@@ -350,31 +350,31 @@
           "index" : 1,
           "title" : "his clothes",
           "value" : 48,
-          "alternates" : ["his clothes", "clothes", "wardrobe", "outfit", "wears", "shirt", "pants", "shoes", "closet"]
+          "alternates" : ["his clothes", "clothes", "wardrobe", "outfit", "what he wears", "shirt", "pants", "shoes", "closet"]
         },
         {
           "index" : 2,
           "title" : "his attitude",
           "value" : 28,
-          "alternates" : ["his attitude", "attitude", "positive", "happier", "happy", "pleasant"]
+          "alternates" : ["his attitude", "attitude", "be more positive", "be happier", "be happy", "be pleasant"]
         },
         {
           "index" : 3,
           "title" : "his job",
           "value" : 18,
-          "alternates" : ["his job", "job", "career", "work", "profession", "title"]
+          "alternates" : ["his job", "job", "career", "where he works", "profession"]
         },
         {
           "index" : 4,
           "title" : "eating habits",
           "value" : 3,
-          "alternates" : ["eating habits", "eat", "diet", "food", "health"]
+          "alternates" : ["eating habits", "what he eats", "diet", "food", "eat healthier"]
         },
         {
           "index" : 5,
           "title" : "his snoring",
           "value" : 3,
-          "alternates" : ["his snoring", "snore", "snoring"]
+          "alternates" : ["his snoring", "snoring"]
         }
       ]
     },
@@ -404,7 +404,7 @@
           "index" : 4,
           "title" : "fear of open spaces",
           "value" : 20,
-          "alternates" : ["fear of open spaces", "crowd", "open space", "agoraphobia", "lots of people", "big spaces"]
+          "alternates" : ["fear of open spaces", "crowds", "open space", "agoraphobia", "lots of people"]
         }
       ]
     },
@@ -458,7 +458,7 @@
           "index" : 3,
           "title" : "freddy krueger",
           "value" : 20,
-          "alternates" : ["freddy krueger","freddy", "krueger", "kruger"]
+          "alternates" : ["freddy krueger", "freddy", "krueger"]
         },
         {
           "index" : 4,
@@ -482,7 +482,7 @@
           "index" : 1,
           "title" : "drink",
           "value" : 28,
-          "alternates" : ["drink", "alcohol", "beer", "booze", "drunk"]
+          "alternates" : ["drink", "alcohol", "dui", "drink and drive", "beer", "booze", "be drunk"]
         },
         {
           "index" : 2,
@@ -494,13 +494,13 @@
           "index" : 3,
           "title" : "sleep",
           "value" : 22,
-          "alternates" : ["sleep", "nap", "snooze", "drowsy", "tired", "sleep"]
+          "alternates" : ["sleep", "nap", "snooze", "drive drowsy", "drive while tired", "sleep"]
         },
         {
           "index" : 4,
           "title" : "speed",
           "value" : 13,
-          "alternates" : ["speed", "fast"]
+          "alternates" : ["speed", "go too fast"]
         },
         {
           "index" : 5,
@@ -530,7 +530,7 @@
           "index" : 3,
           "title" : "pants",
           "value" : 20,
-          "alternates" : ["jeans", "pants", "sweatpants", "sweats"]
+          "alternates" : ["jeans", "pants", "sweatpants"]
         },
         {
           "index" : 4,
