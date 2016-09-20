@@ -96,7 +96,7 @@
         <div ng-show="readyToStart">
             <!--<h3 class="team-name">TEAM {{teamPlaying.name | uppercase}}</h3>-->
             <div class="row players-row">
-                <div ng-repeat="player in teamPlaying.players">
+                <div ng-repeat="player in teamPlaying.players" ng-class="{'going-line': player.going}">
                     <a href="#" class="thumbnail player-thumb" ng-class="{going: player.going}">
                         <img ng-src="images/people/{{player.imgSrc}}" alt="...">
                         <div class="caption">
@@ -193,7 +193,7 @@
 
                 <form ng-submit="submitAnswer(currentQuestion, finalAnswer)">
                     <div class="input-group input-group-lg margin-top" style="max-width:600px;">
-                        <input type="text" class="form-control" placeholder="Enter answer..." ng-model="finalAnswer" ng-disabled="checkingAnswer" aria-describedby="sizing-addon1">
+                        <input type="text" class="form-control" placeholder="Enter answer..." ng-model="finalAnswer" ng-disabled="checkingAnswer" aria-describedby="sizing-addon1" autofocus>
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="submit" ng-disabled="checkingAnswer">Final answer!</button>
                         </span>
@@ -213,7 +213,7 @@
                 <h3>Let's try answering a few bonus questions and raise your score!</h3>
                 <ul class="list-group" style="font-size: 17px;">
                     <li class="list-group-item">2 bonus questions!</li>
-                    <li class="list-group-item"><strong class="text-danger">As a team,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
+                    <li class="list-group-item"><strong class="text-danger">As a team,</strong> you will have <strong class="text-primary">15 seconds</strong> to choose an answer.</li>
                     <li class="list-group-item">Earn a mystery prize for each correct answer!</li>
                 </ul>
                 <button class="btn btn-primary" type="button" ng-click="showBonus()">Answer bonus questions</button>
@@ -250,7 +250,7 @@
                                 <div class="bonus-item" ng-click="bonusBag()">
                                     <div class="caption">
                                         <h3>Mystery Bag of Points</h3>
-                                        <p>Receive a random number of bonus points to add to your score!</p>
+                                        <p>Receive a random number of bonus points (between 25 and 50) to add to your score!</p>
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@
                                 <div class="bonus-item" ng-click="bonusBomb()">
                                     <div class="caption">
                                         <h3>Mystery Bomb</h3>
-                                        <p>Bomb another culture team and take away a random number of points!</p>
+                                        <p>Bomb another culture team and take away a random number of points (between 1 and 100)!</p>
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +328,7 @@
                                 <div class="bonus-item" ng-click="bonusBag()">
                                     <div class="caption">
                                         <h3>Mystery Bag of Points</h3>
-                                        <p>Receive a random number of bonus points to add to your score!</p>
+                                        <p>Receive a random number of bonus points (between 25 and 50) to add to your score!</p>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@
                                 <div class="bonus-item" ng-click="bonusBomb()">
                                     <div class="caption">
                                         <h3>Mystery Bomb</h3>
-                                        <p>Bomb another culture team and take away a random number of points!</p>
+                                        <p>Bomb another culture team and take away a random number of points (between 1 and 100)!</p>
                                     </div>
                                 </div>
                             </div>

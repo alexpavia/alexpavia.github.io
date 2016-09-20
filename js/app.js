@@ -231,7 +231,12 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
 
     $scope.nextQuestion = function(){
         $scope.loadingQuestion = true;
+        $scope.finalAnswer = "";
 
+        for (var i = 0; i < $scope.currentQuestion.answers.length;i++) {
+            $scope.revealAnswer($scope.currentQuestion.answers[i]);
+        }
+        
         if ($scope.currentQuestionNum == 15) {
             $scope.gameFinished();
         } else {
@@ -252,27 +257,37 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
 
         var matched = false;
         for (var i = 0; i < question.answers.length; i++) {
-            for (var j = 0; j < question.answers[i].alternates.length; j++) {
-                if (answer == question.answers[i].alternates[j]) {
-                    //matches answer
-                    matched = true;
-                    $scope.checkingAnswer = false;
+            if (question.answers[i].locked) {
+                //question already answered, do nothing
+            } else {
+                for (var j = 0; j < question.answers[i].alternates.length; j++) {
+                    if (answer == question.answers[i].alternates[j]) {
+                        //matches answer
+                        matched = true;
+                        $scope.checkingAnswer = false;
 
-                    $scope.showCorrectMessage();
-                    $scope.revealAnswer(question.answers[i]);
-                    giveQuestionPoints(question.answers[i].value);
-                    clearInterval(interval);
-                    
-                    $timeout(function(){
-                        setPlayer($scope.currentPlayerNum);
-                        $scope.finalAnswer = "";
-                    }, 3000);
+                        $scope.showCorrectMessage();
+                        $scope.revealAnswer(question.answers[i]);
+                        giveQuestionPoints(question.answers[i].value);
+                        clearInterval(interval);
 
-                    break;
-                } else {
-                    //move to next answer
+                        question.answers[i].locked = true;
+
+                        if (question.answers.every(checkLocked)) {
+                            $scope.nextQuestion();
+                        } else {
+                            $timeout(function(){
+                                setPlayer($scope.currentPlayerNum);
+                                $scope.finalAnswer = "";
+                            }, 3000);
+                        }
+                        break;
+                    } else {
+                        //move to next answer
+                    }
                 }
             }
+
         }
         if (!matched) {
             //wrong answer
@@ -285,6 +300,10 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
 
         }
     };
+
+    function checkLocked(question) {
+        return question.locked == true;
+    }
 
     $scope.showCorrectMessage = function() {
         $scope.showSuccess = true;

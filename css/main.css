@@ -84,6 +84,9 @@ a.player-thumb img {
     border: 3px solid #4caf50 !important;
     background-color: #e8f5e9 !important;
 }
+.going-line {
+    border-bottom: 3px solid #4caf50;
+}
 .timer {
     margin: auto;
     max-width: 125px;
@@ -130,6 +133,7 @@ ul.list-group {
 
 li.list-group-item {
     border: none;
+    background-color: transparent;
 }
 
 .thumbnail {
