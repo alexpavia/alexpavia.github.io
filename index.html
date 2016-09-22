@@ -116,7 +116,7 @@
                     <h3>OK, here are the rules:</h3>
                     <ul class="list-group" style="font-size: 17px;">
                         <li class="list-group-item">Each question (15 total) will have hidden answers that you will need to guess.</li>
-                        <li class="list-group-item"><strong class="text-danger">One person at a time,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
+                        <li class="list-group-item"><strong class="text-danger">Starting with the person on the TOP LEFT,</strong> you will have <strong class="text-primary">15 seconds</strong> to think of and type in your answer.</li>
                         <li class="list-group-item">Earn points with correct answers, or get a STRIKE for each wrong answer.</li>
                         <li class="list-group-item"><strong>Two strikes</strong> means the question is over, and you move on to the next one.</li>
                         <li class="list-group-item"><strong>Mute your microphone</strong> when it's not your turn!</li>
@@ -140,7 +140,7 @@
             <div class="col-sm-12 center">
                 <span style="font-size:20px;color:#b0bec5">#{{loadingQuestion ? "..." : currentQuestion.index}}</span>
 
-                <h4 class="margin-bot" style="font-size:20px;color:#546e7a">{{loadingQuestion ? "..." : currentQuestion.title}}</h4>
+                <h4 class="margin-bot question" ng-class="{'transparent-bkg':loadingQuestion}">{{loadingQuestion ? "..." : currentQuestion.title}}</h4>
 
                 <div class="gameboard">
                     <div class="row players-row" ng-show="hasStarted">
@@ -193,7 +193,7 @@
 
                 <form ng-submit="submitAnswer(currentQuestion, finalAnswer)">
                     <div class="input-group input-group-lg margin-top" style="max-width:600px;">
-                        <input type="text" class="form-control" placeholder="Enter answer..." ng-model="finalAnswer" ng-disabled="checkingAnswer" aria-describedby="sizing-addon1" autofocus>
+                        <input type="text" id="answerBox" class="form-control" placeholder="Enter answer..." ng-model="finalAnswer" ng-disabled="checkingAnswer" aria-describedby="sizing-addon1" autofocus>
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="submit" ng-disabled="checkingAnswer">Final answer!</button>
                         </span>

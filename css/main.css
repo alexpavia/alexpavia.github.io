@@ -122,6 +122,20 @@ a.player-thumb img {
     background-color:#fff;
 }
 
+.transparent-bkg {
+    background-color: transparent !important;
+}
+
+.question {
+    font-size: 22px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #546e7a;
+    padding: 15px 0;
+    margin: 10px 115px;
+    border-radius: 4px;
+}
+
 /*///// BOOTSTRAP OVERRIDES /////*/
 .page-header {
     text-align: center;

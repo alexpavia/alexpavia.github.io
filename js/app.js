@@ -214,6 +214,7 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
             }
         }
         $scope.loadingQuestion = false;
+        document.getElementById("answerBox").focus();
     }
 
     function setPlayer(currentPlayerNum) {
@@ -227,6 +228,7 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
         $scope.currentPlayerName = $scope.teamPlaying.players[$scope.currentPlayerNum].name;
 
         startTimer(15, display);
+        document.getElementById("answerBox").focus();
     }
 
     $scope.nextQuestion = function(){
@@ -248,7 +250,7 @@ app.controller("mainCTRL", function($scope, $http, $timeout){
                 $scope.questionPoints = 0;
                 loadQuestion($scope.currentQuestionNum);
                 setPlayer($scope.currentPlayerNum);
-            }, 4000);
+            }, 10000);
         }
     };
 
